@@ -1,21 +1,21 @@
-#define UP_RED 2
-#define UP_YELLOW 3
-#define UP_GREEN 4 //위쪽 불
+#define UP_RED 12
+#define UP_YELLOW 11
+#define UP_GREEN 10 //위쪽 불
 
-#define DOWN_RED 22
-#define DOWN_YELLOW 24
-#define DOWN_GREEN 26  //아래쪽 불
+#define DOWN_RED 4
+#define DOWN_YELLOW 3
+#define DOWN_GREEN 2  //아래쪽 불
 
-#define RIGHT_RED 11
-#define RIGHT_YELLOW 12
-#define RIGHT_GREEN 13  //오른쪽 불
+#define RIGHT_RED 22
+#define RIGHT_YELLOW 24
+#define RIGHT_GREEN 26  //오른쪽 불
 
-#define LEFT_RED 33
-#define LEFT_YELLOW 35
-#define LEFT_GREEN 37  //왼쪽 불
+#define LEFT_RED 35
+#define LEFT_YELLOW 37
+#define LEFT_GREEN 39  //왼쪽 불
 
-#define UD_SW 47       //위아래 스위치
-#define LR_SW 49       //양옆 스위치
+#define UD_SW 49       //위아래 스위치
+#define LR_SW 45       //양옆 스위치
 
 #define LED 8
 
