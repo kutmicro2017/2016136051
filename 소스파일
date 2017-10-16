@@ -19,7 +19,7 @@
 
 #define LED 8
 
-int interval = 10000; //  켜지는 시간설정
+int interval = 10000; //  시간간격 선언
 unsigned long TimeUD;//unsigned 부호없는 정수 선언
 unsigned long TimeLR;
 
@@ -68,7 +68,9 @@ void loop() //반복적으로 호출, 장비 상태 변화, 요청에 대한 응
   }
   //두 경우 모두 아닌 경우
   else{
-  unsigned long currentTime1 = millis();   
+  unsigned long currentTime1 = millis(); //millis() 함수가 현재시간(아두이노가 시작된 후부터 경과된 시간)을 
+                                         //밀리초 단위로(1/1000 초) 리턴해줌. 이걸 loop() 반복문을 돌때마다 체크하면 
+                                         //경과된 시간이 얼마인지를 알 수 있다.
     if(currentTime1 > TimeUD + interval && currentTime1 > TimeLR + interval*2){
       Blink_UD_LED();
       initLeftRight(); 
