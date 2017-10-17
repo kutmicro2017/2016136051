@@ -1,17 +1,17 @@
-#define UPPER_RED 2
-#define UPPER_YELLOW 3
-#define UPPER_GREEN 4 //위쪽 불 // 핀번호
-#define LOWER_RED 22
-#define LOWER_YELLOW 24
-#define LOWER_GREEN 26  //아래쪽 불 // 핀번호
-#define RIGHT_RED 11
-#define RIGHT_YELLOW 12
-#define RIGHT_GREEN 13  //오른쪽 불 // 핀번호
+#define UPPER_RED 12
+#define UPPER_YELLOW 11
+#define UPPER_GREEN 10 //위쪽 불 // 핀번호
+#define LOWER_RED 4
+#define LOWER_YELLOW 3
+#define LOWER_GREEN 2  //아래쪽 불 // 핀번호
+#define RIGHT_RED 22
+#define RIGHT_YELLOW 24
+#define RIGHT_GREEN 26/오른쪽 불 // 핀번호
 #define LEFT_RED 33
 #define LEFT_YELLOW 35
 #define LEFT_GREEN 37  //왼쪽 불 // 핀번호
-#define UD_SW 49       //위아래 스위치
-#define LR_SW 47       //양옆 스위치
+#define UD_SW 47      //위아래 스위치
+#define LR_SW 43      //양옆 스위치
 
 int interval = 10000; // 스위치 누르지 않았을때 시간, 나누기 1000해주면 sec 즉 5000 일때  5000 / 1000 => 5초
 unsigned long TimeUD; // 위 아래 불이 켜져있을때 millis를 입력 하기 위한 변수
