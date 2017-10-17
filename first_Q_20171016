@@ -40,14 +40,14 @@ void setup()  // 초기 한번 실행
 void loop() //반복
 {
   if(digitalRead(LR_SW) == LOW && digitalRead(UPPER_GREEN) == HIGH){ // (스위치는 LOW가 스위치 눌린 경우, HIGH가 안눌린 경우) && (위에 초록불 켜졌을 때)
-    delay(1000); // 주황불 1초후 켜지게 함 바로 뒤 블링크가 깜빡이는 함수
+    delay(1000); // 노란불 1초후 켜지게 함 바로 뒤 블링크가 깜빡이는 함수
     Blink_UD_LED(); // 깜빡이는 함수 호출
-    initLeftRight(); // 좌 우 불 킴
+    initLeftRight(); // 좌,우 불 킴
   }
   else if(digitalRead(UD_SW) == LOW && digitalRead(LEFT_GREEN) == HIGH){ // (스위치는 LOW가 스위치 눌린 경우, HIGH가 안눌린 경우) && (왼쪽 초록불 켜졌을 때)
-    delay(1000);// 주황불 1초후 켜지게 함 바로 뒤 블링크가 깜빡이는 함수
+    delay(1000);
     Blink_LR_LED();// 깜빡이는 함수 호출
-    initUpDown();// 위 아래 불 킴
+    initUpDown();// 위, 아래 불 킴
   }
   else{// 버튼 둘다 안눌리고 그냥 기다린 경우 변경되는 조건
     unsigned long currentTime = millis(); // 시간 값 입력
@@ -64,11 +64,11 @@ void loop() //반복
 }
  
 void Blink_LR_LED(){ // 좌우 깜빡이 함수
-  digitalWrite(RIGHT_GREEN, LOW);  digitalWrite(LEFT_GREEN, LOW); // 초록불 꺼져랏
+  digitalWrite(RIGHT_GREEN, LOW);  digitalWrite(LEFT_GREEN, LOW); // 좌우 초록불 꺼짐
    for(int i = 0; i<3; i++){ // for문 i값 있는거 가지고 횟수 반복 5번 하려면 중간에 조건식 i < 5
-  digitalWrite(LEFT_YELLOW, HIGH);   digitalWrite(RIGHT_YELLOW, HIGH);  // 좌우 주황불 켜져랏
+  digitalWrite(LEFT_YELLOW, HIGH);   digitalWrite(RIGHT_YELLOW, HIGH);  // 좌우 노란불 켜짐
   delay(500); // 1초 깜빡이 하려면 0.5초 씩
-  digitalWrite(LEFT_YELLOW, LOW);   digitalWrite(RIGHT_YELLOW, LOW); // 좌우 주황불 꺼짐
+  digitalWrite(LEFT_YELLOW, LOW);   digitalWrite(RIGHT_YELLOW, LOW); // 좌우 노란불 꺼짐
   delay(500); // 1초 깜빡이 하려면 0.5초씩
  }
 }
@@ -76,29 +76,29 @@ void Blink_LR_LED(){ // 좌우 깜빡이 함수
 void Blink_UD_LED(){ // 위아래 깜빡이 함수
   digitalWrite(UPPER_GREEN, LOW);  digitalWrite(LOWER_GREEN, LOW); // 위 아래 초록불 꺼짐
    for(int i = 0; i<3; i++){ //  for문 i값 있는거 가지고 횟수 반복 5번 하려면 중간에 조건식 i < 5
-  digitalWrite(UPPER_YELLOW, HIGH);   digitalWrite(LOWER_YELLOW, HIGH); // 위 아래 주황불 켜져랏
+  digitalWrite(UPPER_YELLOW, HIGH);   digitalWrite(LOWER_YELLOW, HIGH); // 위 아래 노란불 켜져짐
   delay(500);// 1초 깜빡이 하려면 0.5초 씩
-  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 위 아래 위위 아래
+  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 위 아래 노란불 꺼짐
   delay(500);// 1초 깜빡이 하려면 0.5초씩
  }
 }
 
-void initUpDown(){ // 위 아래 불 켜져랏
-  digitalWrite(UPPER_GREEN, HIGH); digitalWrite(LOWER_GREEN, HIGH); // 위 아래 초록불 켜져랏
-  digitalWrite(LEFT_RED, HIGH); digitalWrite(RIGHT_RED, HIGH); // 좌 우 빨간불 켜져랏
+void initUpDown(){ // 위 아래 불 켜져는 함수
+  digitalWrite(UPPER_GREEN, HIGH); digitalWrite(LOWER_GREEN, HIGH); // 위 아래 초록불 켜짐
+  digitalWrite(LEFT_RED, HIGH); digitalWrite(RIGHT_RED, HIGH); // 좌 우 빨간불 켜짐
   
-  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 나머지 다 꺼져라
+  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 나머지 불  모두 끔
   digitalWrite(LEFT_YELLOW, LOW);   digitalWrite(RIGHT_YELLOW, LOW); 
   digitalWrite(UPPER_RED, LOW);  digitalWrite(LOWER_RED, LOW);
   digitalWrite(RIGHT_GREEN, LOW);  digitalWrite(LEFT_GREEN, LOW);
   TimeUD = millis(); //위 아래 켜진거 시간 값 넣기
   }
   
- void initLeftRight(){ // 좌 우 불 켜져랏
-  digitalWrite(RIGHT_GREEN, HIGH);  digitalWrite(LEFT_GREEN, HIGH); // 좌우 초록불 켜져랏
-  digitalWrite(UPPER_RED, HIGH);  digitalWrite(LOWER_RED, HIGH); // 위 아래 빨간불 켜져랏
+ void initLeftRight(){ // 좌 우 불 켜지는 함수
+  digitalWrite(RIGHT_GREEN, HIGH);  digitalWrite(LEFT_GREEN, HIGH); // 좌우 초록불 켜짐
+  digitalWrite(UPPER_RED, HIGH);  digitalWrite(LOWER_RED, HIGH); // 위 아래 빨간불 켜짐
 
-  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 나머지 다 꺼져라!
+  digitalWrite(UPPER_YELLOW, LOW);   digitalWrite(LOWER_YELLOW, LOW); // 나머지 다 꺼짐
   digitalWrite(LEFT_YELLOW, LOW);   digitalWrite(RIGHT_YELLOW, LOW);
   digitalWrite(LEFT_RED, LOW);  digitalWrite(RIGHT_RED, LOW);
   digitalWrite(UPPER_GREEN, LOW);  digitalWrite(LOWER_GREEN, LOW);
